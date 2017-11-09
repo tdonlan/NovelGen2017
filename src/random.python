@@ -10,8 +10,6 @@ def getRandomWords(wordlist):
 
 	return retval
 
-
-
 f = open("data/google-10000-english-no-swears.txt","r")
 wordlist = []
 for line in f:
@@ -19,5 +17,4 @@ for line in f:
 
 newlist = getRandomWords(wordlist)
 print newlist
-
 
