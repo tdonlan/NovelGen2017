@@ -1,6 +1,6 @@
 import random
 
-f = open("data/Lovecraft.DunwichHorror.txt","r")
+f = open("data/fellowshipOfTheRing.txt","r")
 
 #read full text into list
 textlist = f.read().split()

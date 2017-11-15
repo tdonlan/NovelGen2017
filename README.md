@@ -17,5 +17,13 @@ other ideas
 
 -word cloud - find the most common words, phrases in a text (minus common words: the, and)
 
+-interleaving - taking the structure of one text and apply the sentences of another text when they match the rough format.
 
+-simplify - take a sentence and remove all adjectives, extra words.
 
+vocab: https://github.com/tasdikrahman/vocabulary or http://stevenloria.com/tutorial-wordnet-textblob/
+https://textblob.readthedocs.io/en/dev/
+
+http://rwet.decontextualize.com/book/textblob/
+
+Part of Speech tags: https://www.clips.uantwerpen.be/pages/mbsp-tags
