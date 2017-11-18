@@ -1,10 +1,11 @@
 from markovSentence import generateRawMarkov
 
+#structure
 f = open("data/Lovecraft.DunwichHorror.txt","r")
-#read full text into list
 textlist = f.read().split("\n")
 
-f2 = open("data/fellowshipOfTheRing.txt")
+#data
+f2 = open("data/KingJamesBible.txt")
 textlist2 = f2.read().split()
 
 paralist = ""
