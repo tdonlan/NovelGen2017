@@ -1,6 +1,9 @@
-from markovSentence import generateRawMarkov
-from markovSentence import generateBiDirMarkov
+from markovSentence import generateMarkovSentence
+from markovSentence import generateBiDirMarkovSentence
 
-print(generateBiDirMarkov("data/Lovecraft.DunwichHorror.txt","hate",10))
+#generateMarkovSentence("data/Lovecraft.DunwichHorror.txt","I")
 
-print(generateBiDirMarkov("data/KingJamesBible.txt","love",10))
+print(generateMarkovSentence("data/macbeth.txt","I",50))
+
+#print(generateBiDirMarkovSentence("data/KingJamesBible.txt","love",25))
+

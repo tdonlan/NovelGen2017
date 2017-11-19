@@ -21,6 +21,9 @@ other ideas
 
 -simplify - take a sentence and remove all adjectives, extra words.
 
+-perlin noise to generate structure
+	
+
 vocab: https://github.com/tasdikrahman/vocabulary or http://stevenloria.com/tutorial-wordnet-textblob/
 https://textblob.readthedocs.io/en/dev/
 

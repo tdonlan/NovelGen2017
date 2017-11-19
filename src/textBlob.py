@@ -1,19 +1,20 @@
 from textblob import TextBlob
 
 text = '''
-When a traveler in north central Massachusetts takes the wrong fork
-at the junction of the Aylesbury pike just beyond Dean's Corners he
-comes upon a lonely and curious country
+The birch canoe slid on the smooth planks.
 '''
 
 blob = TextBlob(text)
 
 taglist = blob.tags
 
-print(taglist)
+taglist2 = []
 
 for tag in taglist:
 	if ('NN' in tag[1]  or  'VB' in tag[1]):
+		taglist2.append(tag[0])
 		print tag[0] + " - " + tag[1]
+
+print taglist2
 
 print(blob.noun_phrases)
