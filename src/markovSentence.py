@@ -58,6 +58,20 @@ def generateRawMarkov(textlist, curword, length):
 		curword = nextwordlist[random.randint(0,len(nextwordlist)-1)]
 
 	return retval
+
+def generateMarkovSentence(filename, curword,length):
+	f = open(filename,"r")
+
+	#read full text into list
+	textlist = f.read().split()
+
+	raw = generateRawMarkov(textlist,curword,length)
+	sentPattern = "[A-Z][^.]+."
+	sents = re.findall(sentPattern,raw)
+	if len(sents) == 0:
+		return sents
+	else:
+		return sents[0]
 	
 def generateBiDirMarkovSentence(filename, curword, length):
 	f = open(filename,"r")
@@ -73,16 +87,4 @@ def generateBiDirMarkovSentence(filename, curword, length):
 	else:
 		return sents[random.randint(0,len(sents)-1)]
 
-def generateMarkovSentence(filename, curword,length):
-	f = open(filename,"r")
 
-	#read full text into list
-	textlist = f.read().split()
-
-	raw = generateRawMarkov(textlist,curword,length)
-	sentPattern = "[A-Z][^.]+."
-	sents = re.findall(sentPattern,raw)
-	if len(sents) == 0:
-		return sents
-	else:
-		return sents[random.randint(0,len(sents)-1)]
