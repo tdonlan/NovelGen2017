@@ -27,6 +27,8 @@ other ideas
 
 -name generation of the same style (fantasy -> fantasy, modern -> modern, place->place)
 
+-need to save textlist for a full chapter / paragraph instead of reparsing every sentence (tooooo slow)
+
 vocab: https://github.com/tasdikrahman/vocabulary or http://stevenloria.com/tutorial-wordnet-textblob/
 https://textblob.readthedocs.io/en/dev/
 

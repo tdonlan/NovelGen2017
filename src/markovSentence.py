@@ -10,29 +10,29 @@ def getRandWord(sentence):
 	return filtered[random.randint(0,len(filtered)-1)]
 
 #generate a chained markov paragraph of length.  
-def genMarkovParagraph(filename, curword, linecount):
+def genMarkovParagraph(textlist, curword, linecount):
 	para = ""
 
-	sent = generateBiDirMarkovSentence(filename,curword,random.randint(10,25))
+	sent = generateBiDirMarkovSentence(textlist,curword,random.randint(10,25))
 
 	for x in range(0,linecount):
 		para = para + " " + sent
 		word = getRandWord(sent)
-		sent = generateBiDirMarkovSentence(filename,word,random.randint(10,25))
+		sent = generateBiDirMarkovSentence(textlist,word,random.randint(10,25))
 
 	return para
 
-def genMarkovFirstPersonParagraph(filename, linecount):
+def genMarkovFirstPersonParagraph(textlist, linecount):
 	para = ""
 
 	curword = "I"
 
-	sent = generateMarkovSentence(filename,curword,random.randint(10,25))
+	sent = generateMarkovSentence(textlist,curword,random.randint(10,25))
 
 	for x in range(0,linecount):
 		para = para + " " + sent
 		word = getRandWord(sent)
-		sent = generateBiDirMarkovSentence(filename,word,random.randint(10,25))
+		sent = generateBiDirMarkovSentence(textlist,word,random.randint(10,25))
 
 	return para
 
@@ -89,12 +89,7 @@ def generateRawMarkov(textlist, curword, length):
 
 	return retval
 
-def generateMarkovSentence(filename, curword,length):
-	f = open(filename,"r")
-
-	#read full text into list
-	textlist = f.read().split()
-
+def generateMarkovSentence(textlist, curword,length):
 	raw = generateRawMarkov(textlist,curword,length)
 	sentPattern = "[A-Z][^.!?]*[.!?]"
 	sents = re.findall(sentPattern,raw)
@@ -103,12 +98,7 @@ def generateMarkovSentence(filename, curword,length):
 	else:
 		return sents[0]
 	
-def generateBiDirMarkovSentence(filename, curword, length):
-	f = open(filename,"r")
-
-	#read full text into list
-	textlist = f.read().split()
-
+def generateBiDirMarkovSentence(textlist, curword, length):
 	raw = generateBiDirMarkov(textlist,curword,length)
 	sentPattern = "[A-Z][^.!?]*[.!?]"
 	sents = re.findall(sentPattern,raw)

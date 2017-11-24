@@ -11,6 +11,9 @@ from markovSentence import getRandWord
 #pattern - each chapter - build a mystical quote from bible/shakepeare.  extract the key word.
 #use keyword to generate an assortment of narrative/descriptive sentences from random sources.
 
+def getTextlist(filename):
+	f = open(filename,"r")
+	return f.read().split()
 
 def genChapter(sourceList, sourceCount, introWord):
 	chapter = ""
@@ -34,9 +37,13 @@ def genFirstPersonChapter(sourceList, sourceCount):
 
 	return chapter
 
-introList = ["data/texts/KingJamesBible.txt","data/texts/macbeth.txt"]
-firstPersonList = ["data/texts/sherlock.txt","data/texts/lovecraft.txt","data/texts/Frankenstein.txt"]
-list2 = ["data/texts/mobydick.txt","data/texts/fellowshipOfTheRing.txt"]
+introList = [getTextlist("data/texts/KingJamesBible.txt"),
+	getTextlist("data/texts/macbeth.txt")]
+firstPersonList = [getTextlist("data/texts/sherlock.txt"),
+	getTextlist("data/texts/lovecraft.txt"),
+	getTextlist("data/texts/Frankenstein.txt")]
+list2 = [getTextlist("data/texts/mobydick.txt"),
+	getTextlist("data/texts/fellowshipOfTheRing.txt")]
 
 intro = genChapter(introList, 1,"")
 print "Chapter 1\n"
