@@ -6,8 +6,9 @@ from markovSentence import generateBiDirMarkov
 
 def getRandWord(sentence):
 	split = sentence.split()
-	return split[random.randint(0,len(split)-1)]
-
+	common = ["the","of","and","to","a","in","for","is","on","that","by","this","with","i","you","it","not","or","be","are","as"]
+	filtered = [x for x in split if x.lower() not in common]
+	return filtered[random.randint(0,len(filtered)-1)]
 
 count = random.randint(5,10)
 src = "data/texts/aliceInWonderland.txt"
@@ -16,5 +17,4 @@ sent = generateBiDirMarkovSentence(src,"",random.randint(10,25))
 for x in range(0,count):
 	print sent
 	word = getRandWord(sent)
-	print word
 	sent = generateBiDirMarkovSentence(src,word,random.randint(10,25))

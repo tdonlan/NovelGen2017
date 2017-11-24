@@ -3,6 +3,39 @@ import random
 import re
 from textblob import TextBlob
 
+def getRandWord(sentence):
+	split = sentence.split()
+	common = ["the","of","and","to","a","in","for","is","on","that","by","this","with","i","you","it","not","or","be","are","as"]
+	filtered = [x for x in split if x.lower() not in common]
+	return filtered[random.randint(0,len(filtered)-1)]
+
+#generate a chained markov paragraph of length.  
+def genMarkovParagraph(filename, curword, linecount):
+	para = ""
+
+	sent = generateBiDirMarkovSentence(filename,curword,random.randint(10,25))
+
+	for x in range(0,linecount):
+		para = para + " " + sent
+		word = getRandWord(sent)
+		sent = generateBiDirMarkovSentence(filename,word,random.randint(10,25))
+
+	return para
+
+def genMarkovFirstPersonParagraph(filename, linecount):
+	para = ""
+
+	curword = "I"
+
+	sent = generateMarkovSentence(filename,curword,random.randint(10,25))
+
+	for x in range(0,linecount):
+		para = para + " " + sent
+		word = getRandWord(sent)
+		sent = generateBiDirMarkovSentence(filename,word,random.randint(10,25))
+
+	return para
+
 #generate bi-directional markov, starting at curword.  goes both directions until a . is encountered.
 def generateBiDirMarkov(textlist, curword,length):
 

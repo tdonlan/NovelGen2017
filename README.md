@@ -22,7 +22,10 @@ other ideas
 -simplify - take a sentence and remove all adjectives, extra words.
 
 -perlin noise to generate structure
-	
+
+-need the ability to find proper nouns in a sentence (famous names, etc) and create a replacement + store a dictionary for future replacements.
+
+-name generation of the same style (fantasy -> fantasy, modern -> modern, place->place)
 
 vocab: https://github.com/tasdikrahman/vocabulary or http://stevenloria.com/tutorial-wordnet-textblob/
 https://textblob.readthedocs.io/en/dev/
