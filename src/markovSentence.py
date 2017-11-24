@@ -6,7 +6,6 @@ from textblob import TextBlob
 #generate bi-directional markov, starting at curword.  goes both directions until a . is encountered.
 def generateBiDirMarkov(textlist, curword,length):
 
-
 	if curword == "" or curword not in textlist:
 		curword = textlist[random.randint(0,len(textlist)-1)]
 
@@ -14,7 +13,7 @@ def generateBiDirMarkov(textlist, curword,length):
 	nextword = curword
 	prevword = curword
 
-	for x in range(0,length):
+	for x in range(0,length*2):
 		
 		nextwordlist  = []
 		indices = [i for i, x in enumerate(textlist) if x == nextword]
@@ -37,8 +36,6 @@ def generateBiDirMarkov(textlist, curword,length):
 
 	#do some processing on this?
 	return retval
-
-
 
 def generateRawMarkov(textlist, curword, length):
 	retval = ""
@@ -66,10 +63,10 @@ def generateMarkovSentence(filename, curword,length):
 	textlist = f.read().split()
 
 	raw = generateRawMarkov(textlist,curword,length)
-	sentPattern = "[A-Z][^.]+."
+	sentPattern = "[A-Z][^.!?]*[.!?]"
 	sents = re.findall(sentPattern,raw)
 	if len(sents) == 0:
-		return sents
+		return raw[0].upper() + raw[1:] + "."
 	else:
 		return sents[0]
 	
@@ -80,11 +77,9 @@ def generateBiDirMarkovSentence(filename, curword, length):
 	textlist = f.read().split()
 
 	raw = generateBiDirMarkov(textlist,curword,length)
-	sentPattern = "[A-Z][^.]+."
+	sentPattern = "[A-Z][^.!?]*[.!?]"
 	sents = re.findall(sentPattern,raw)
 	if len(sents) == 0:
-		return sents
+		return raw[0].upper() + raw[1:] + "."
 	else:
 		return sents[random.randint(0,len(sents)-1)]
-
-

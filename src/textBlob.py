@@ -1,8 +1,8 @@
 from textblob import TextBlob
+from markovSentence import generateMarkovSentence
 
-text = '''
-The birch canoe slid on the smooth planks.
-'''
+text = str(generateMarkovSentence("data/texts/macbeth.txt","",25))
+print text
 
 blob = TextBlob(text)
 
