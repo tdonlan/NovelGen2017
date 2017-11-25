@@ -45,17 +45,28 @@ firstPersonList = [getTextlist("data/texts/sherlock.txt"),
 list2 = [getTextlist("data/texts/mobydick.txt"),
 	getTextlist("data/texts/fellowshipOfTheRing.txt")]
 
-intro = genChapter(introList, 1,"")
-print "Chapter 1\n"
-print intro
-print "\n\n"
-introWord = getRandWord(intro)
-print genFirstPersonChapter(firstPersonList,random.randint(2,5))
-print "\n\n"
-print genChapter(list2,random.randint(5,10),introWord)
-print "\n\n"
-print genFirstPersonChapter(firstPersonList,random.randint(5,10))
-print "\n\n"
-print genChapter(list2,random.randint(10,20),introWord)
-print "\n\n"
-print genFirstPersonChapter(firstPersonList,random.randint(2,5))
+outFile = open('output/book1.txt','w')
+
+chCount = 10
+
+for ch in range(1,chCount):
+	print "Chapter " + str(ch) + "...\n"
+
+	intro = genChapter(introList, 1,"")
+
+	outFile.write("Chapter " + str(ch) + "\n")
+	outFile.write(intro)
+	outFile.write("\n\n")
+	introWord = getRandWord(intro)
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
+	outFile.write("\n\n")
+	outFile.write(genChapter(list2,random.randint(5,10),introWord))
+	outFile.write("\n\n")
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(5,10)))
+	outFile.write("\n\n")
+	outFile.write(genChapter(list2,random.randint(10,20),introWord))
+	outFile.write("\n\n")
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
+	outFile.write("\n\n***\n\n")
+
+f.close()

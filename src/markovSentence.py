@@ -51,19 +51,25 @@ def generateBiDirMarkov(textlist, curword,length):
 		nextwordlist  = []
 		indices = [i for i, x in enumerate(textlist) if x == nextword]
 		for i in indices:
-			if i < len(textlist):
+			if i < len(textlist)-1:
 				nextwordlist.append(textlist[i+1])
 
 		#select randomly from list
-		nextword = nextwordlist[random.randint(0,len(nextwordlist)-1)]
+		if (len(nextwordlist) > 1):
+			nextword = nextwordlist[random.randint(0,len(nextwordlist)-1)]
+		else:
+			nextword = textlist[random.randint(0,len(textlist)-1)]
 
 		prevwordlist  = []
 		indices = [i for i, x in enumerate(textlist) if x == prevword]
 		for i in indices:
-			if i < len(textlist):
+			if i < len(textlist)-1:
 				prevwordlist.append(textlist[i-1])
 
-		prevword = prevwordlist[random.randint(0,len(prevwordlist)-1)]
+		if (len(prevwordlist) > 1):
+			prevword = prevwordlist[random.randint(0,len(prevwordlist)-1)]
+		else:
+			prevword = textlist[random.randint(0,len(textlist)-1)]
 
 		retval = prevword + " " + retval + " " + nextword
 
@@ -81,11 +87,14 @@ def generateRawMarkov(textlist, curword, length):
 		nextwordlist  = []
 		indices = [i for i, x in enumerate(textlist) if x == curword]
 		for i in indices:
-			if i < len(textlist):
+			if i < len(textlist)-1:
 				nextwordlist.append(textlist[i+1])
 
 		#select randomly from list
-		curword = nextwordlist[random.randint(0,len(nextwordlist)-1)]
+		if (len(nextwordlist) > 1):
+			curword = nextwordlist[random.randint(0,len(nextwordlist)-1)]
+		else:
+			curword = textlist[random.randint(0,len(textlist)-1)]
 
 	return retval
 
