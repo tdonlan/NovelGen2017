@@ -37,34 +37,30 @@ def genFirstPersonChapter(sourceList, sourceCount):
 
 	return chapter
 
-introList = [getTextlist("data/texts/KingJamesBible.txt"),
-	getTextlist("data/texts/macbeth.txt")]
-firstPersonList = [getTextlist("data/texts/sherlock.txt"),
+introList = [getTextlist("data/texts/KingJamesBible.txt")]
+firstPersonList = [getTextlist("data/texts/cthulu.txt"),
 	getTextlist("data/texts/lovecraft.txt"),
-	getTextlist("data/texts/Frankenstein.txt")]
-list2 = [getTextlist("data/texts/mobydick.txt"),
-	getTextlist("data/texts/fellowshipOfTheRing.txt")]
+	getTextlist("data/texts/metamorphosis.txt")]
 
-outFile = open('output/book1.txt','w')
+outFile = open('output/book4.txt','w')
 
 chCount = 10
 
 for ch in range(1,chCount):
 	print "Chapter " + str(ch) + "...\n"
 
-	intro = genChapter(introList, 1,"")
+	intro = genChapter(introList, 5,"")
 
 	outFile.write("Chapter " + str(ch) + "\n")
 	outFile.write(intro)
 	outFile.write("\n\n")
-	introWord = getRandWord(intro)
 	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
 	outFile.write("\n\n")
-	outFile.write(genChapter(list2,random.randint(5,10),introWord))
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
 	outFile.write("\n\n")
-	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(5,10)))
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
 	outFile.write("\n\n")
-	outFile.write(genChapter(list2,random.randint(10,20),introWord))
+	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
 	outFile.write("\n\n")
 	outFile.write(genFirstPersonChapter(firstPersonList,random.randint(2,5)))
 	outFile.write("\n\n***\n\n")
