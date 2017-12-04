@@ -35,3 +35,10 @@ https://textblob.readthedocs.io/en/dev/
 http://rwet.decontextualize.com/book/textblob/
 
 Part of Speech tags: https://www.clips.uantwerpen.be/pages/mbsp-tags
+
+-----
+
+final plan:
+-clean up the CHAPTER and random Roman Numerals from the text.
+-replaceNouns on book1,3,4,dialog
+-create section titles for book
